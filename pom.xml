@@ -16,14 +16,11 @@
 	<groupId>com.example</groupId>
 	<artifactId>springdemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springdemo</name>
-	<description>Spring Boot Demo Project</description>
 
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 
-	<!-- ✅ IMPORTANT: packaging -->
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -40,11 +37,35 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-		<!--spring security encoder -->
+		<!-- Security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+		<!-- ✅ JWT (FIXED WITH VERSION) -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- 🚫 REMOVE THIS (IMPORTANT) -->
+		<!-- DO NOT ADD jjwt 0.9.1 -->
 
 		<!-- MySQL -->
 		<dependency>
@@ -53,7 +74,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- H2 (optional, for testing only) -->
+		<!-- H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -66,6 +87,8 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Crypto -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-crypto</artifactId>
@@ -76,7 +99,6 @@
 
 	<build>
 		<plugins>
-			<!-- Required to create executable JAR -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
